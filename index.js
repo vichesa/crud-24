@@ -53,6 +53,9 @@ app.delete("/api/delete/:id", (req, res) => {
   db.query("DELETE FROM posts WHERE id= ?", id, (err, result) => {
     if (err) {
       console.log(err);
+    } else {
+      console.log("deleted", result);
+      window.location.reload();
     }
   });
 });

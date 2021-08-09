@@ -8,6 +8,8 @@ export default function Post(props) {
   // const posts = JSON.stringify(postList);
   const posts = Object.keys(postList).map((key) => postList[key]);
 
+  const post = JSON.stringify(posts);
+
   console.log("post", posts);
 
   useEffect(() => {
@@ -19,8 +21,18 @@ export default function Post(props) {
     console.log("data", JSON.stringify(postList));
   };
   return (
-    <div>
-      <button onClick={showData}>Show</button>
+    <div className="container mt-4">
+      <div className="button d-flex justify-content-around">
+        <a href="/" className="btn btn-danger mb-4">
+          Back
+        </a>
+        <button className="btn btn-primary mb-4" onClick={showData}>
+          Show
+        </button>
+      </div>
+      <div className="card">
+        <li>{post}</li>
+      </div>
     </div>
   );
 }
